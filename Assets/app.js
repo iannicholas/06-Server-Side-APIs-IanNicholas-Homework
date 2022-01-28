@@ -64,6 +64,8 @@ function getCoordinatesApi(city) {
           windtext = data.current.wind_speed;
           humiditytext = data.current.humidity;
           uvtext = data.current.uvi;
+          icon = data.current.weather[0].icon;
+          console.log(icon);
           // icon = data.current.
           // console.log(cityDate);
           // currentDay.append(cityDate);
@@ -75,14 +77,14 @@ function getCoordinatesApi(city) {
 
           var todayContent = `
             
-            <h1 class="city">${cityDate} ${currentDate}</h1>
+            <h1 class="city">${cityDate} ${currentDate} <img src="http://openweathermap.org/img/wn/${icon}.png"/></h1>
             <p class="temp">Temp: ${temptext}<span>&#176;</span></p>
             <p class="wind">Wind: ${windtext} MPH</p>
             <p class="humidity">Humidity: ${humiditytext}%</p>
             <p class="uv">UV Index: ${uvtext}</p><i class="uv"></i>
             
             `
-
+          console.log(todayContent);
           for (var i = 0; i < 5; i++) {
             cardIcon = data.daily[i].weather[0].icon;
             cardTemp = data.daily[i].temp.day;
@@ -91,7 +93,8 @@ function getCoordinatesApi(city) {
 
             var cardContent = `
             <div class="card border p-auto m-auto" id="card-info">
-            <div class="card-body"
+            <div class="card-body">
+            <img src="http://openweathermap.org/img/wn/${cardIcon}.png"/>
             <p class="temp card-text">Temp: ${cardTemp}<span>&#176;</span></p>
             <p class="wind card-text">Wind: ${cardWind} MPH</p>
             <p class="humidity card-text">Humidity: ${cardHumidity}%</p>
