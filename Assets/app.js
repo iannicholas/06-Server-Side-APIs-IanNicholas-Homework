@@ -33,7 +33,7 @@ function getCoordinatesApi(city) {
   city.preventDefault();
   var searchField = document.querySelector("#search-term").value;
   var city = searchField;
-  var requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=80209709c75d143fbea0f02cb9a2dd95`;
+  var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=80209709c75d143fbea0f02cb9a2dd95`;
   var requestUrl2;
 
   console.log(requestUrl);
