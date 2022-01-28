@@ -12,6 +12,8 @@ var wind = document.querySelector(".wind");
 var humidity = document.querySelector(".humidity");
 var uv = document.querySelector(".uv");
 var date = document.querySelector(".date");
+var todayContainer = document.querySelector(".border");
+var cards = document.querySelector(".cards");
 
 function init() {
   headerRow();
@@ -56,19 +58,51 @@ function getCoordinatesApi(city) {
         })
         .then(function (data) {
           console.log(data);
+          
           cityDate = city;
           var temptext = data.current.temp;
           windtext = data.current.wind_speed;
           humiditytext = data.current.humidity;
           uvtext = data.current.uvi;
-          console.log(cityDate);
-          currentDay.append(cityDate);
-          date.append(currentDate);
-          temp.append(temptext);
-          wind.append(windtext);
-          humidity.append(humiditytext);
-          uv.append(uvtext);
-         
+          // icon = data.current.
+          // console.log(cityDate);
+          // currentDay.append(cityDate);
+          // date.append(currentDate);
+          // temp.append(temptext);
+          // wind.append(windtext);
+          // humidity.append(humiditytext);
+          // uv.append(uvtext);
+
+          var todayContent = `
+            
+            <h1 class="city">${cityDate} ${currentDate}</h1>
+            <p class="temp">Temp: ${temptext}<span>&#176;</span></p>
+            <p class="wind">Wind: ${windtext} MPH</p>
+            <p class="humidity">Humidity: ${humiditytext}%</p>
+            <p class="uv">UV Index: ${uvtext}</p><i class="uv"></i>
+            
+            `
+
+          for (var i = 0; i < 5; i++) {
+            cardIcon = data.daily[i].weather[0].icon;
+            cardTemp = data.daily[i].temp.day;
+            cardWind = data.daily[i].wind_speed;
+            cardHumidity = data.daily[i].humidity;
+
+            var cardContent = `
+            <div class="card border p-auto m-auto" id="card-info">
+            <div class="card-body"
+            <p class="temp card-text">Temp: ${cardTemp}<span>&#176;</span></p>
+            <p class="wind card-text">Wind: ${cardWind} MPH</p>
+            <p class="humidity card-text">Humidity: ${cardHumidity}%</p>
+            </div>
+            </div>
+            `
+            cards.innerHTML += cardContent;
+          }
+          console.log(cardContent);
+          
+          todayContainer.innerHTML = todayContent;  
         });
     });
 }
