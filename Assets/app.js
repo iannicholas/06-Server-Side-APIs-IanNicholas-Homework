@@ -56,11 +56,6 @@ function getCoordinatesApi(city) {
         })
         .then(function (data) {
           console.log(data);
-          // var cityDate = document.createElement("p");
-          // var temp = document.createElement("p");
-          // var wind = document.createElement("p");
-          // var humidity = document.createElement("p");
-          // var uv = document.createElement("p");
           cityDate = city;
           var temptext = data.current.temp;
           windtext = data.current.wind_speed;
@@ -73,27 +68,6 @@ function getCoordinatesApi(city) {
           wind.append(windtext);
           humidity.append(humiditytext);
           uv.append(uvtext);
-          // var cardinfo = document.getElementById("card-info");
-          // cardinfo.innerHTML = "";
-          // for (var i = 0; i < 5; i++) {
-          //   console.log(data[i]);
-          //   var date = document.createElement("h1");
-          //   var icon = document.createElement("i");
-          //   var cardTemp = document.createElement("p");
-          //   var cardWind = document.createElement("p");
-          //   var cardHumidity = document.createElement("p");
-          //   var html = 
-          //   '<div class="card col-md-12 border-0 d-inline card1">'
-          //   '<div class="card-body col-2 d-inline bg-dark card1">'
-          //       '<h1>${data[i].name}</h1>'
-          //       '<i>${data[i].street}</i>'
-          //       '<p>${"Temp: " + data[i].distance + "<span>&#176;</span>F"}</p>'
-          //       '<p>${"Wind: " + data[i].directions + "MPH"}</p>'
-          //       '<p>${"Humidity: " + data[i].comments + "<span>&#37;</span>"}</p>'
-          //   '</div>'
-          //   '</div>'
-          //   cardinfo.innerHTML += html;
-          // }
          
         });
     });
