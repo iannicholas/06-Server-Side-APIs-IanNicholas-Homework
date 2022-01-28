@@ -1,5 +1,4 @@
 // define variables
-// var searchField = document.querySelector("#search-term").value;
 var searchButton = document.querySelector("#search-button");
 var lat = "";
 var lon = "";
@@ -66,14 +65,6 @@ function getCoordinatesApi(city) {
           uvtext = data.current.uvi;
           icon = data.current.weather[0].icon;
           console.log(icon);
-          // icon = data.current.
-          // console.log(cityDate);
-          // currentDay.append(cityDate);
-          // date.append(currentDate);
-          // temp.append(temptext);
-          // wind.append(windtext);
-          // humidity.append(humiditytext);
-          // uv.append(uvtext);
 
           var todayContent = `
             
