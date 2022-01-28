@@ -1,5 +1,5 @@
 // define variables
-var searchField = document.querySelector("#search-term").value;
+// var searchField = document.querySelector("#search-term").value;
 var searchButton = document.querySelector("#search-button");
 var lat = "";
 var lon = "";
@@ -56,11 +56,11 @@ function getCoordinatesApi(city) {
         })
         .then(function (data) {
           console.log(data);
-          var cityDate = document.createElement("p");
-          var temp = document.createElement("p");
-          var wind = document.createElement("p");
-          var humidity = document.createElement("p");
-          var uv = document.createElement("p");
+          // var cityDate = document.createElement("p");
+          // var temp = document.createElement("p");
+          // var wind = document.createElement("p");
+          // var humidity = document.createElement("p");
+          // var uv = document.createElement("p");
           cityDate = city;
           var temptext = data.current.temp;
           windtext = data.current.wind_speed;
