@@ -18,9 +18,9 @@
 
 ## Screenshots
 
-![Initial page load.](./Assets/weatherload.png)
+![Initial page load](./Assets/weatherload.PNG)
 
-![Initial page load.](./Assets/fetch.png)
+![After fetch](./Assets/fetch.PNG)
 
 ## GitHub links 
 
