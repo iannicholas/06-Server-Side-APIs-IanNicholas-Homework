@@ -30,7 +30,11 @@ init();
 
 // fetch api response
 function getCoordinatesApi(city) {
+  // todaycontainer = "";
+  // cards = "";
+  
   city.preventDefault();
+  
   var searchField = document.querySelector("#search-term").value;
   var city = searchField;
   var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=80209709c75d143fbea0f02cb9a2dd95`;
@@ -77,14 +81,19 @@ function getCoordinatesApi(city) {
             `
           console.log(todayContent);
           for (var i = 0; i < 5; i++) {
+            
+            date = data.daily[i].dt;
+            cardDate = moment.unix(date).format("L");
             cardIcon = data.daily[i].weather[0].icon;
             cardTemp = data.daily[i].temp.day;
             cardWind = data.daily[i].wind_speed;
             cardHumidity = data.daily[i].humidity;
+            // nextDay = moment().add(1, "days").format("L");
 
             var cardContent = `
             <div class="card border p-auto m-auto" id="card-info">
             <div class="card-body">
+            <p class="card-text">${cardDate}</p>
             <img src="http://openweathermap.org/img/wn/${cardIcon}.png"/>
             <p class="temp card-text">Temp: ${cardTemp}<span>&#176;</span></p>
             <p class="wind card-text">Wind: ${cardWind} MPH</p>
@@ -92,9 +101,11 @@ function getCoordinatesApi(city) {
             </div>
             </div>
             `
+            console.log(cardDate);
             cards.innerHTML += cardContent;
           }
           console.log(cardContent);
+          
           
           todayContainer.innerHTML = todayContent;  
         });
